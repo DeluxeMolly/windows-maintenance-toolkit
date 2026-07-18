@@ -1,0 +1,12 @@
+# Generated reports
+Reports/*.txt
+
+# Generated logs
+Logs/*.log
+
+# PowerShell Editor Services
+.vscode/
+
+# Windows
+Thumbs.db
+Desktop.ini
