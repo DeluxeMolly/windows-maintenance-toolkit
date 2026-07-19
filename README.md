@@ -24,14 +24,28 @@ A modular PowerShell toolkit for Windows PC maintenance that automates applicati
 
 ## Usage
 
-1. Run PowerShell as Administrator.
-2. Execute `PC-Maintenance.ps1`.
-3. Wait for the maintenance process to complete.
-4. Review the generated maintenance report.
+HOW TO START
+------------
+Double-click:
 
-## Current Version
+    Launch PC Maintenance.cmd
 
-**v1.0.0**
+The launcher prefers PowerShell 7 when installed, then safely falls back
+to the built-in Windows PowerShell 5.1. It opens the correct v1.1.1 script.
+The two older BAT launchers now redirect to this launcher.
+
+SETTINGS
+--------
+Edit Config\Settings.json before starting the toolkit.
+
+CreateSystemRestorePoint is disabled by default.
+RunDISM is disabled by default.
+
+EXIT CODES
+----------
+0 = completed normally
+1 = completed with warnings or an Action Centre item
+2 = completed with a failure
 
 ## Roadmap
 
@@ -41,6 +55,24 @@ A modular PowerShell toolkit for Windows PC maintenance that automates applicati
 - Restore Point support
 - Configuration file
 - Deep Maintenance mode
+  
+### WHAT CHANGED IN v1.1.1
+----------------------
+- Fixed the PowerShell 7 launcher and desktop shortcut.
+- Added built-in Windows PowerShell 5.1 compatibility.
+- Corrected the internal version from 1.1.0 to 1.1.1.
+- Counts real Winget package rows instead of console output lines.
+- Preserves Winget package IDs containing spaces.
+- Verifies installed application updates with a second inventory check.
+- Uses one Windows Update search and reports partial/failed updates correctly.
+- Counts temporary-file space only after a file is successfully deleted.
+- Uses safe literal paths and rejects unsafe cleanup roots.
+- Reports fixed drives consistently before and after maintenance.
+- Always performs restart detection and deduplicates Action Centre items.
+- Shows Completed, Partial, Failed, Skipped, or No work needed for each action.
+- Recovers safely from a missing or invalid Settings.json file.
+- Respects report opening, report retention, verbose output, and restore-point settings.
+- Adds optional DISM Windows image repair through the RunDISM setting.
 
 ### v2.0
 - Live dashboard
